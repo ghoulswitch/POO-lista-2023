@@ -1,0 +1,25 @@
+package deppoolista1;
+import java.util.Scanner;
+
+public class Quest13 {
+	public void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+			double perimetro;
+			double pi = 13.1416;
+			double raio;
+			double area;
+			
+			System.out.println("Insira o valor do raio:");
+			raio = sc.nextDouble();	
+			
+			perimetro = 2 * pi * raio;
+			area = pi * (raio*raio);
+			
+			System.out.printf("O valor do perímetro é", + perimetro);
+			System.out.printf("O valor da área é", + area);
+			
+			sc.close();
+		}
+	}
+
