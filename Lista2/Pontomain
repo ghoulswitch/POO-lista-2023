@@ -1,0 +1,28 @@
+package deppoolista2;
+
+public class Pontomain {
+	public static void main(String[] args) {
+		
+		Ponto p1 = new Ponto();
+		Ponto p2 = new Ponto();
+		
+		p1.setPosition(10, 5);
+		p2.setPosition(7, 7);
+		
+		System.out.println("X: " + p1.getX());
+		System.out.println("Y: " + p1.getY());
+		
+		System.out.println("X: " + p2.getX());
+		System.out.println("Y: " + p2.getY());
+		
+		
+		Circuloexemp circulo = new Circuloexemp();
+		   circulo.x = 10;
+		   circulo.y = 10;
+		   circulo.raio = 5;
+		   double area = circulo.CalcularArea();
+		
+		
+	}
+
+}
