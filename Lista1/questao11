@@ -1,0 +1,25 @@
+package deppoolista1;
+import java.util.Scanner;
+
+public class Quest11 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		double prestacao;
+		double valor;
+		double taxa = 12;
+        double tempo;
+		
+		System.out.println("Insira o valor da prestação inicial:");
+		valor = sc.nextDouble();
+		System.out.println("Insira os meses de atraso:");
+		tempo = sc.nextDouble();
+		
+		prestacao = valor + (valor*(taxa/100)*tempo);
+		
+		System.out.printf("O valor da prestação em atraso será de: %.2f", prestacao);
+		
+		sc.close();
+	}
+
+}
