@@ -1,0 +1,14 @@
+package deppoolista2;
+
+public class Circuloexemp {
+	
+	int x;
+	int y;
+	int raio;
+	
+	public double CalcularArea() {
+		double area = Math.PI * Math.pow(raio,  2);
+		return area;
+	}
+
+}
