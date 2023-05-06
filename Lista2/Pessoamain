@@ -1,0 +1,24 @@
+package deppoolista2;
+import java.util.Scanner;
+
+public class Pessoamain {
+	public void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		Pessoa p1 = new Pessoa();
+		
+		System.out.println("Escreva seu nome: ");
+		p1.nome = sc.nextLine();
+		System.out.println("Informe seu sexo: ");
+		p1.sexo = sc.nextLine().charAt(0);
+		System.out.println("Escreva sua idade: ");
+		p1.idade = sc.nextInt();
+		System.out.println("Informe sua altura: ");
+		p1.altura = sc.nextFloat();
+		System.out.println("Escreva seu peso: ");
+		p1.peso = sc.nextFloat();
+		
+		sc.close();
+	}
+
+}
