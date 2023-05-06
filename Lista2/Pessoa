@@ -1,0 +1,67 @@
+package deppoolista2;
+
+public class Pessoa {
+	
+	String nome;
+	char sexo;
+	int idade;
+	float altura, peso;
+	
+	public void setPosition (String nome) {
+		this.nome = nome;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	
+	public void setPosition (char sexo) {
+		this.sexo = sexo;
+	}
+	
+	public char getSexo() {
+		return sexo;
+	}
+	
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+	
+	public void setPosition (int idade) {
+		this.idade = idade;
+	}
+	
+	public int getIdade() {
+		return idade;
+	}
+	
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+	
+	public void setPosition(float altura, float peso) {
+		this.altura = altura;
+		this.peso = peso;
+	}
+	
+	public float getAltura() {
+		return altura;
+	}
+	
+	public void setAltura(float altura) {
+		this.altura = altura;
+	}
+	
+	public float getPeso() {
+		return peso;
+	}
+	
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+
+}
