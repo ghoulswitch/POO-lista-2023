@@ -1,0 +1,34 @@
+package deppoolista2;
+import java.util.Scanner;
+
+public class Pontomain2 {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		Ponto p1 = new Ponto();
+		Ponto p2 = new Ponto();
+		
+		
+		//ponto 1
+		System.out.println("Digite um valor para x: ");
+		p1.x = sc.nextInt();
+		System.out.println("Digite um valor para y: ");
+		p1.y = sc.nextInt();
+		
+		System.out.println("X do ponto 1: " + p1.getX());
+		System.out.println("Y do ponto 1: " + p1.getY());
+		
+		//ponto 2
+		System.out.println("Digite um valor para x: ");
+		p2.x = sc.nextInt();
+		System.out.println("Digite um valor para y: ");
+		p2.y = sc.nextInt();
+		
+		System.out.println("X do ponto 2: " + p2.getX());
+		System.out.println("Y do ponto 2: " + p2.getY());
+		
+		sc.close();
+		
+	}
+
+}
