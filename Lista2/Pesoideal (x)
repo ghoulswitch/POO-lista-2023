@@ -1,0 +1,22 @@
+package deppoolista2;
+
+public class Pesoideal {
+	
+	int Feminino = 57;
+	int Masculino = 69;
+	float altura;
+	int pesoideal;
+	
+	public double CalcularPesoideal(int feminino, float altura) {
+		double pesoideal = feminino + altura;
+		return pesoideal;
+	}
+		
+		public double CalcularPesoideal2(int masculino, float altura) {
+			double pesoideal = masculino + altura;
+			return pesoideal;
+	}
+
+
+
+}
