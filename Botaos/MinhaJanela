@@ -1,0 +1,122 @@
+package src;
+
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
+//import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.JToggleButton;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+
+public class MinhaJanela extends JFrame {
+	
+	public MinhaJanela () {
+		
+		setTitle("Minha Janela");
+		setSize(450, 320);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		//agrupa elementos
+		Container container = getContentPane();
+		container.setLayout(new FlowLayout(FlowLayout.CENTER));
+		
+		//JButton botao1 = new JButton("ok");
+		//JButton botao2 = new JButton("cancelar");
+		//container.add(botao1);
+		//container.add(botao2);
+		
+		JToggleButton botao1 = new JToggleButton("Play");
+		JToggleButton botao2 = new JToggleButton("Stop");
+		
+		//botao2.setPreferredSize(getPreferredSize());
+		
+		//botao1.setSelected(true);
+		
+		ButtonGroup grupo = new ButtonGroup();
+		grupo.add(botao1);
+		grupo.add(botao2);
+		
+		JCheckBox chEconomia = new JCheckBox("Economia");
+		JCheckBox chEducacao = new JCheckBox("Educação");
+		JCheckBox chEsporte = new JCheckBox("Esporte");
+		JCheckBox chTecnologia = new JCheckBox("Tecnologia");
+		
+		JRadioButton botaofem = new JRadioButton("feminino");
+		JRadioButton botaomasc = new JRadioButton("masculino");
+		
+		ButtonGroup grupo2 = new ButtonGroup();
+		grupo2.add(botaofem);
+		grupo2.add(botaomasc);
+		
+		String[] lista = new String[] {"item 1", "item 2", "item 3", "item 4", "item 5"};
+		JComboBox cbLista = new JComboBox(lista);
+		cbLista.setMaximumRowCount(3);
+		
+		JList jList = new JList(lista);
+		jList.setVisibleRowCount(3);
+		
+		JScrollPane scroll = new JScrollPane(jList);
+		
+		JTextField textField = new JTextField("Teste", 15);
+		JTextArea textArea = new JTextArea("Texto de teste", 15, 30);
+		JScrollPane scroll2 = new JScrollPane(textArea);
+		
+		JSpinner spinner = new JSpinner(new SpinnerNumberModel(0, 0, 50, 1));
+		
+		JSlider slider1 = new JSlider(SwingConstants.VERTICAL, 0, 100, 50);
+		slider1.setMajorTickSpacing(10);
+		slider1.setPaintTicks(true);
+		slider1.setPaintLabels(true);
+		
+		JProgressBar barraProgresso = new JProgressBar(SwingConstants.VERTICAL, 0, 100);
+		barraProgresso.setValue(30);
+		
+		JPanel painel = new JPanel();
+		painel.setLayout(new FlowLayout());
+		painel.add(botao1);
+		painel.add(botao2);
+		painel.setBackground(Color.GREEN);
+		container.add(painel);
+		
+		container.add(botao1);
+		container.add(botao2);
+		
+		container.add(chEconomia);
+		container.add(chEducacao);
+		container.add(chEsporte);
+		container.add(chTecnologia);
+		
+		container.add(botaofem);
+		container.add(botaomasc);
+		
+		container.add(cbLista);
+		
+		container.add(jList);
+		
+		container.add(textField);
+		container.add(scroll2);
+		
+		container.add(spinner);
+		
+		container.add(slider1);
+		
+		container.add(barraProgresso);
+	
+	
+      }
+
+}
