@@ -15,7 +15,7 @@ public class MinhaJanela extends JFrame {
 	public MinhaJanela() {
 		
 		//título da janela
-			setTitle("Motivo da minha morte:");
+			setTitle("namorla eu nao aguento mais");
 			setSize(400, 350);
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			
