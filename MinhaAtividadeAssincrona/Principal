@@ -1,0 +1,12 @@
+package InterfaceG;
+
+
+public class Principal {
+	
+	public static void main(String[] args) {
+		//System.out.println("Hello world");
+		
+		Janela janela = new Janela();
+		janela.setVisible(true);
+	}
+}
