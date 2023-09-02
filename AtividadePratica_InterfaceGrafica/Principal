@@ -1,0 +1,10 @@
+package Interface;
+
+public class Principal {
+	public static void main(String[] args) {
+	
+		Formulário formulario = new Formulário();
+		formulario.setVisible(true);
+		
+	}
+}
