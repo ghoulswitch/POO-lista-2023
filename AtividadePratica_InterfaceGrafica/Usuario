@@ -1,0 +1,15 @@
+package Interface;
+
+public class Usuario {
+	
+	private String nome;
+	private int idade;
+	private char sexo;
+	private String endereco;
+	private boolean interesseEmEducacao, interesseEmEconomia;
+	private boolean interesseEmEsporte, interesseEmTecnologia;
+	private int nivelDeConhecimentoEmInformatica;
+	private String informacoesAdicionais;
+	private String senha;
+
+}
