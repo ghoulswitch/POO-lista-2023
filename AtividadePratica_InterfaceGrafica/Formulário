@@ -3,35 +3,93 @@ package Interface;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
-public class Formulário extends JFrame implements ActionListener {
+public class Formulario extends JFrame implements ActionListener {
 	
-	public Formulário() {
+	JLabel txtNome, txtIdade, txtSexo, txtEndereco;
+	JTextField lblNome, textNome, lblEndereco; 
+	JComboBox cbIdade;
+	JRadioButton rbMasculino, rbFeminino;
+	
+	public Formulario() {
 		//título da janela
 		setTitle("Formulário de Cadastro de Usuário");
 		//horizontal, vertical
 		setSize(600, 550);
 		//ação do usuário mudar o tamanho da janela
 		setResizable(false);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-    //não mostra na janela(???)
-		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setSize(80, 50);
-		lblNome.setLocation(15, 2);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		JTextField textField = new JTextField();
-		textField.setLocation(100, 15);
-		textField.setSize(100, 25);
+		Container container = getContentPane();
+		container.setLayout(null);
+		
+		txtNome = new JLabel("Nome:");
+		txtNome.setSize(80, 50);
+		txtNome.setLocation(15, 2);
+		
+		//área p usuário preencher
+		textNome = new JTextField();
+		textNome.setLocation(60, 15);
+		textNome.setSize(100, 25);
+		
+		txtIdade = new JLabel("Idade:");
+		txtIdade.setSize(80, 50);
+		txtIdade.setLocation(15, 38);
+		
+		String[] cb = new String[] {"18", "19", "20", "21", "22", "23", "24", "25"};
+		cbIdade = new JComboBox(cb);
+		//quantidade de número mostrados na lista
+		cbIdade.setMaximumRowCount(4);
+		//horizontal, vertical
+		cbIdade.setLocation(60, 53);
+		cbIdade.setSize(50, 20);
+		
+		txtSexo = new JLabel("Sexo:");
+		txtSexo.setSize(80, 50);
+		//horizontal, vertical
+		txtSexo.setLocation(12, 72);
+		
+		rbMasculino = new JRadioButton("Masculino");
+		rbMasculino.setSize(85, 50);
+		rbMasculino.setLocation(55, 72);
+
+		rbFeminino = new JRadioButton("Feminino");
+		rbFeminino.setSize(90, 50);
+		rbFeminino.setLocation(143, 72);
+		
+		txtEndereco = new JLabel("Endereço:");
+		txtEndereco.setSize(175, 50);
+		//horizontal, vertical
+		txtEndereco.setLocation(12, 110);
+		
+		lblEndereco = new JTextField();
+		lblEndereco.setSize(260, 30);
+		lblEndereco.setLocation(80, 120);
+		
+		
+		
+		
+		//método que adiciona um objeto para a componente de interface gráfica.
+		container.add(txtNome);
+		container.add(textNome);
+		container.add(txtIdade);
+		container.add(cbIdade);
+		container.add(txtSexo);
+		container.add(rbMasculino);
+		container.add(rbFeminino);
+		container.add(txtEndereco);
+		container.add(lblEndereco);
 	}
-	
+
 	@Override
-	//método obrigatório do ActionListener
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		
 	}
+
 }
