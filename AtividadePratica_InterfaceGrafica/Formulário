@@ -8,6 +8,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
@@ -25,6 +26,7 @@ public class Formulario extends JFrame implements ActionListener {
 	JSlider nivel;
 	JTextArea txaInfo;
 	JScrollPane scroll;
+	JPasswordField psSenha;
 	
 	public Formulario() {
 		//título da janela
@@ -124,7 +126,7 @@ public class Formulario extends JFrame implements ActionListener {
         nivel.setLocation(15, 290);
         
 		txtInfo = new JLabel("Informações adicionais:");
-		txtInfo.setSize(240, 50);
+		txtInfo.setSize(200, 50);
 		//horizontal, vertical
 		txtInfo.setLocation(12, 338);
 		
@@ -134,14 +136,18 @@ public class Formulario extends JFrame implements ActionListener {
 		scroll = new JScrollPane();
 		scroll.setViewportView(txaInfo);
         scroll.setSize(250, 100);
-        scroll.setLocation(10, 380);
+        scroll.setLocation(10, 378);
         
-        
-        //nao aparece na telaaaa a partir de 380
-		txtSenha = new JLabel("Senha:");
-		txtSenha.setSize(80, 50);
+        //nao aparece
+		txtSenha = new JLabel();
+		txtSenha.setSize(170, 50);
 		//horizontal, vertical
-		txtSenha.setLocation(12, 380);
+		txtSenha.setLocation(70, 485);
+        
+		psSenha = new JPasswordField();
+		psSenha.setSize(120, 40);
+		//horizontal, vertical
+		psSenha.setLocation(12, 485);
 
 		
 		
@@ -166,12 +172,27 @@ public class Formulario extends JFrame implements ActionListener {
 		container.add(txaInfo);
 		container.add(scroll);
 		container.add(txtSenha);
+		container.add(psSenha);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		Usuario usuario = new Usuario();
+		usuario.setNome(lblNome.getText());
+		//?
+		String[] cb = null;
+		usuario.setIdade(Integer.parseInt(cb[cbIdade.getSelectedIndex()]));
+		
+		if(rbFeminino.isSelected()) {
+			usuario.setSexo('F');
+		} else if(rbMasculino.isSelected()) {
+			usuario.setSexo('M');
+		}
+		
+		usuario.setEndereco(lblEndereco.getText());
 		
 	}
 
 }
+
