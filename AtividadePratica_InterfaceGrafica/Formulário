@@ -3,24 +3,34 @@ package Interface;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Hashtable;
+import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 public class Formulario extends JFrame implements ActionListener {
 	
-	JLabel txtNome, txtIdade, txtSexo, txtEndereco;
+	JLabel txtNome, txtIdade, txtSexo, txtEndereco, txtNoticias, txtNivel, txtInfo, txtSenha;
 	JTextField lblNome, textNome, lblEndereco; 
 	JComboBox cbIdade;
 	JRadioButton rbMasculino, rbFeminino;
+	JCheckBox chEdu, chEcon, chEsp, chTecn;
+	JSlider nivel;
+	JTextArea txaInfo;
+	JScrollPane scroll;
 	
 	public Formulario() {
 		//título da janela
 		setTitle("Formulário de Cadastro de Usuário");
 		//horizontal, vertical
-		setSize(600, 550);
+		setSize(600, 670);
 		//ação do usuário mudar o tamanho da janela
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -52,26 +62,87 @@ public class Formulario extends JFrame implements ActionListener {
 		txtSexo = new JLabel("Sexo:");
 		txtSexo.setSize(80, 50);
 		//horizontal, vertical
-		txtSexo.setLocation(12, 72);
+		txtSexo.setLocation(12, 82);
 		
 		rbMasculino = new JRadioButton("Masculino");
 		rbMasculino.setSize(85, 50);
-		rbMasculino.setLocation(55, 72);
+		rbMasculino.setLocation(55, 82);
 
 		rbFeminino = new JRadioButton("Feminino");
 		rbFeminino.setSize(90, 50);
-		rbFeminino.setLocation(143, 72);
+		rbFeminino.setLocation(143, 82);
 		
 		txtEndereco = new JLabel("Endereço:");
 		txtEndereco.setSize(175, 50);
 		//horizontal, vertical
-		txtEndereco.setLocation(12, 110);
+		txtEndereco.setLocation(12, 130);
 		
 		lblEndereco = new JTextField();
 		lblEndereco.setSize(260, 30);
-		lblEndereco.setLocation(80, 120);
+		lblEndereco.setLocation(80, 140);
 		
+		txtNoticias = new JLabel("Notícias de interesse:");
+		txtNoticias.setSize(175, 50);
+		//horizontal, vertical
+		txtNoticias.setLocation(12, 175);
 		
+		chEdu = new JCheckBox("Educação");
+		chEdu.setSize(100, 50);
+		chEdu.setLocation(20, 210);
+		
+		chEcon = new JCheckBox("Economia");
+		chEcon.setSize(100, 50);
+		chEcon.setLocation(118, 210);
+		
+		chEsp = new JCheckBox("Esporte");
+		chEsp.setSize(100, 50);
+		chEsp.setLocation(217, 210);
+		
+		chTecn = new JCheckBox("Tecnologia");
+		chTecn.setSize(100, 50);
+		chTecn.setLocation(315, 210);
+		
+		txtNivel = new JLabel("Nível de Conhecimento em Informática:");
+		txtNivel.setSize(240, 50);
+		//horizontal, vertical
+		txtNivel.setLocation(12, 250);
+		
+		nivel = new JSlider(SwingConstants.HORIZONTAL, 0, 20, 0);
+		//define a distância entre 2 marcações do valor
+		nivel.setMajorTickSpacing(10);
+		Hashtable<Integer, JLabel> op = new Hashtable<>();
+		op.put(0, new JLabel("Básico"));
+		op.put(10, new JLabel("Intermediário"));
+		op.put(20, new JLabel("Avançado"));
+		
+        nivel.setLabelTable(op);
+        // define se as legendas devem ser pintadas
+        nivel.setPaintLabels(true);
+        //define se os marcadores do JSlider devem ser pintados
+        nivel.setPaintTicks(true);
+        nivel.setSize(250, 50);
+        nivel.setLocation(15, 290);
+        
+		txtInfo = new JLabel("Informações adicionais:");
+		txtInfo.setSize(240, 50);
+		//horizontal, vertical
+		txtInfo.setLocation(12, 338);
+		
+		//não é possivel inserir dados(?)
+		//modelo de texto a ser exibido, largura e altura
+		txaInfo = new JTextArea("", 30, 30);
+		scroll = new JScrollPane();
+		scroll.setViewportView(txaInfo);
+        scroll.setSize(250, 100);
+        scroll.setLocation(10, 380);
+        
+        
+        //nao aparece na telaaaa a partir de 380
+		txtSenha = new JLabel("Senha:");
+		txtSenha.setSize(80, 50);
+		//horizontal, vertical
+		txtSenha.setLocation(12, 380);
+
 		
 		
 		//método que adiciona um objeto para a componente de interface gráfica.
@@ -84,6 +155,17 @@ public class Formulario extends JFrame implements ActionListener {
 		container.add(rbFeminino);
 		container.add(txtEndereco);
 		container.add(lblEndereco);
+		container.add(txtNoticias);
+		container.add(chEdu);
+		container.add(chEcon);
+		container.add(chEsp);
+		container.add(chTecn);
+		container.add(txtNivel);
+		container.add(nivel);
+		container.add(txtInfo);
+		container.add(txaInfo);
+		container.add(scroll);
+		container.add(txtSenha);
 	}
 
 	@Override
