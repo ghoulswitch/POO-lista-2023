@@ -6,7 +6,6 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -15,18 +14,21 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
-import javax.swing.JScrollPane;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
+
 public class JanelaFormulario extends JFrame implements ActionListener {
     
-    private JLabel lblNome, lblIdade, lblSexo, lblAltura, lblEndereco, lblSenha, lblInteresses, lblFoto;
-    private JTextField txtNome, txtAltura, txtEndereco;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JLabel lblNome, lblIdade, lblSexo, lblEndereco, lblSenha, lblInteresses;
+    private JTextField txtNome, txtEndereco;
     private JSpinner spinnerIdade;
     private ButtonGroup grupoSexo;
     private JRadioButton rbMasc, rbFem;
@@ -34,27 +36,26 @@ public class JanelaFormulario extends JFrame implements ActionListener {
     private JCheckBox chkEducacao, chkEconomia, chkTecnologia, chkEsporte;
     private JLabel lblNivel,lblBasico, lblIntermediario, lblAvancado;
     private JSlider sliderNivel;
-    private JLabel lblObservacao;
-    private JTextArea txtObservacao;
-    private JScrollPane scrollObservacao;
     private JPanel painelCenter, painelBottom;
     private JButton btnCadastrar, btnCancelar;    
-    
     private BorderLayout layoutPai;
     private FlowLayout layoutBottom;
-   
     private Principal principal;
     
+    //criando uma janela dentro da classe que recebe um "Principal" objeto como construtor.
     public JanelaFormulario(Principal principal){
         
+    	//define o campo "principal" da janela para o mesmo objeto "Principal" que foi passado p o construtor.
         this.principal = principal;
         
+        //configurações da janela
         setTitle("Formulário de Cadastro de Usuário");
         setSize(600,600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
                 
         Container container = getContentPane(); 
 
+        //define um layout de BorderLayout para o container.
         layoutPai = new BorderLayout();
         container.setLayout(layoutPai);
         
@@ -65,6 +66,7 @@ public class JanelaFormulario extends JFrame implements ActionListener {
         layoutBottom = new FlowLayout(FlowLayout.LEFT, 25,15);
         painelBottom.setLayout(layoutBottom);
         
+        //adiciona painelCenter e painelBottom dentro do componente container.
         container.add(painelCenter, BorderLayout.CENTER);
         container.add(painelBottom, BorderLayout.SOUTH);
         
@@ -127,11 +129,13 @@ public class JanelaFormulario extends JFrame implements ActionListener {
         txtSenha.setBounds(115, 445, 150, 30);
 
         btnCadastrar = new JButton("Cadastrar");
+        //adição de ouvinte de ação (o método do ouvinte será chamado).
         btnCadastrar.addActionListener(this);
         
         btnCancelar = new JButton("Cancelar");
         btnCancelar.addActionListener(this);
         
+        //Adiciona um JButton ao painelBottom.
         painelBottom.add(btnCadastrar);
         painelBottom.add(btnCancelar);
         painelBottom.setBackground(new Color(200,200,200));
@@ -162,23 +166,33 @@ public class JanelaFormulario extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+    	
+    	//cria um objeto da classe Usuario e armazena em uma variável chamada usuario.
         Usuario usuario = new Usuario();
+        //usuário vai definir o nome e o getText vai retornar na tela.
         usuario.setNome(txtNome.getText());
-        usuario.setIdade(Integer.parseInt(spinnerIdade.getValue().toString()));        
+        //usuário vai definir uma idade; converte um valor inteiro por meio do método parseInt() da classe Integer, 
+        //colocando em uma variável inteira chamada idade.
+        usuario.setIdade(Integer.parseInt(spinnerIdade.getValue().toString()));       
+        
         if (rbMasc.isSelected()){
             usuario.setSexo('M');
         }else if (rbFem.isSelected()){
             usuario.setSexo('F');
         }
+        
         usuario.setEndereco(txtEndereco.getText());
         usuario.setInteresseEmEducacao(chkEducacao.isSelected());
         usuario.setInteresseEmEconomia(chkEconomia.isSelected());
         usuario.setInteresseEmEsporte(chkEsporte.isSelected());
         usuario.setInteresseEmTecnologia(chkTecnologia.isSelected());
         usuario.setNivelConhecimentoEmInformatica(sliderNivel.getValue());
+        
         txtSenha = new JPasswordField();
         principal.addUsuario(usuario);
+        //chama o método imprimirUsuarios da classe Principal, exibindo todos os usuários da lista em uma janela.
         principal.imprimirUsuarios();
     }
+
 
 }
