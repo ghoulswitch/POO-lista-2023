@@ -1,0 +1,176 @@
+package AtividadeUsuarios;
+
+public class Usuario {
+    
+    private String nome;
+    private int idade;
+    private char sexo;
+    private String endereco;
+    private boolean interesseEmEducacao, interesseEmEconomia;
+    private boolean interesseEmEsporte, interesseEmTecnologia;
+    private int nivelConhecimentoEmInformatica;
+    private String informacoesAdicionais;
+    private String senha;        
+    
+    public Usuario(){
+        
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the idade
+     */
+    public int getIdade() {
+        return idade;
+    }
+
+    /**
+     * @param idade the idade to set
+     */
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+    /**
+     * @return the sexo
+     */
+    public char getSexo() {
+        return sexo;
+    }
+
+    /**
+     * @param sexo the sexo to set
+     */
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the interesseEmEducacao
+     */
+    public boolean isInteresseEmEducacao() {
+        return interesseEmEducacao;
+    }
+
+    /**
+     * @param interesseEmEducacao the interesseEmEducacao to set
+     */
+    public void setInteresseEmEducacao(boolean interesseEmEducacao) {
+        this.interesseEmEducacao = interesseEmEducacao;
+    }
+
+    /**
+     * @return the interesseEmEconomia
+     */
+    public boolean isInteresseEmEconomia() {
+        return interesseEmEconomia;
+    }
+
+    /**
+     * @param interesseEmEconomia the interesseEmEconomia to set
+     */
+    public void setInteresseEmEconomia(boolean interesseEmEconomia) {
+        this.interesseEmEconomia = interesseEmEconomia;
+    }
+
+    /**
+     * @return the interesseEmEsporte
+     */
+    public boolean isInteresseEmEsporte() {
+        return interesseEmEsporte;
+    }
+
+    /**
+     * @param interesseEmEsporte the interesseEmEsporte to set
+     */
+    public void setInteresseEmEsporte(boolean interesseEmEsporte) {
+        this.interesseEmEsporte = interesseEmEsporte;
+    }
+
+    /**
+     * @return the interesseEmTecnologia
+     */
+    public boolean isInteresseEmTecnologia() {
+        return interesseEmTecnologia;
+    }
+
+    /**
+     * @param interesseEmTecnologia the interesseEmTecnologia to set
+     */
+    public void setInteresseEmTecnologia(boolean interesseEmTecnologia) {
+        this.interesseEmTecnologia = interesseEmTecnologia;
+    }
+
+    /**
+     * @return the nivelConhecimentoEmInformatica
+     */
+    public int getNivelConhecimentoEmInformatica() {
+        return nivelConhecimentoEmInformatica;
+    }
+
+    /**
+     * @param nivelConhecimentoEmInformatica the nivelConhecimentoEmInformatica to set
+     */
+    public void setNivelConhecimentoEmInformatica(int nivelConhecimentoEmInformatica) {
+        this.nivelConhecimentoEmInformatica = nivelConhecimentoEmInformatica;
+    }
+
+    /**
+     * @return the informacoesAdicionais
+     */
+    public String getInformacoesAdicionais() {
+        return informacoesAdicionais;
+    }
+
+    /**
+     * @param informacoesAdicionais the informacoesAdicionais to set
+     */
+    public void setInformacoesAdicionais(String informacoesAdicionais) {
+        this.informacoesAdicionais = informacoesAdicionais;
+    }
+
+    /**
+     * @return the senha
+     */
+    public String getSenha() {
+        return senha;
+    }
+
+    /**
+     * @param senha the senha to set
+     */
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
+    
+
+
+}
