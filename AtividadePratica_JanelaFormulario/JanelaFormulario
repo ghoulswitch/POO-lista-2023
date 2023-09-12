@@ -1,0 +1,184 @@
+package AtividadeUsuarios;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JSlider;
+import javax.swing.JSpinner;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
+
+public class JanelaFormulario extends JFrame implements ActionListener {
+    
+    private JLabel lblNome, lblIdade, lblSexo, lblAltura, lblEndereco, lblSenha, lblInteresses, lblFoto;
+    private JTextField txtNome, txtAltura, txtEndereco;
+    private JSpinner spinnerIdade;
+    private ButtonGroup grupoSexo;
+    private JRadioButton rbMasc, rbFem;
+    private JPasswordField txtSenha;
+    private JCheckBox chkEducacao, chkEconomia, chkTecnologia, chkEsporte;
+    private JLabel lblNivel,lblBasico, lblIntermediario, lblAvancado;
+    private JSlider sliderNivel;
+    private JLabel lblObservacao;
+    private JTextArea txtObservacao;
+    private JScrollPane scrollObservacao;
+    private JPanel painelCenter, painelBottom;
+    private JButton btnCadastrar, btnCancelar;    
+    
+    private BorderLayout layoutPai;
+    private FlowLayout layoutBottom;
+   
+    private Principal principal;
+    
+    public JanelaFormulario(Principal principal){
+        
+        this.principal = principal;
+        
+        setTitle("Formulário de Cadastro de Usuário");
+        setSize(600,600);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+                
+        Container container = getContentPane(); 
+
+        layoutPai = new BorderLayout();
+        container.setLayout(layoutPai);
+        
+        painelCenter = new JPanel();
+        painelCenter.setLayout(null);
+        
+        painelBottom = new JPanel();
+        layoutBottom = new FlowLayout(FlowLayout.LEFT, 25,15);
+        painelBottom.setLayout(layoutBottom);
+        
+        container.add(painelCenter, BorderLayout.CENTER);
+        container.add(painelBottom, BorderLayout.SOUTH);
+        
+        lblNome = new JLabel("Nome:");
+        lblNome.setBounds(15,15, 100, 30);        
+        txtNome = new JTextField();
+        txtNome.setBounds(115, 15, 250, 30);
+        txtNome.setToolTipText("Informe seu nome");
+        
+        lblIdade = new JLabel("Idade:");
+        lblIdade.setBounds(15,50, 100, 30);
+        spinnerIdade = new JSpinner(new SpinnerNumberModel(18,18,100,1));
+        spinnerIdade.setBounds(115, 50, 100, 30);
+            
+        lblSexo = new JLabel("Sexo:");
+        lblSexo.setBounds(15, 85, 50, 30);
+        rbMasc = new JRadioButton("Masc.");
+        rbMasc.setBounds(115, 85, 100, 30);
+        rbFem = new JRadioButton("Fem.");
+        rbFem.setBounds(215, 85, 100, 30);
+        grupoSexo = new ButtonGroup();
+        grupoSexo.add(rbMasc);
+        grupoSexo.add(rbFem);
+        rbMasc.setSelected(true);
+        
+        lblEndereco = new JLabel("Endereço:");
+        lblEndereco.setBounds(15, 120, 100, 30);
+        txtEndereco = new JTextField();
+        txtEndereco.setBounds(115, 120, 300, 30);
+        
+        lblInteresses = new JLabel("Notícias de Interesse:");
+        lblInteresses.setBounds(15, 155, 150,30);
+        chkEducacao = new JCheckBox("Educação");
+        chkEducacao.setBounds(15, 185,100, 30);
+        chkEconomia = new JCheckBox("Economia");
+        chkEconomia.setBounds(115, 185, 100, 30);
+        chkEsporte = new JCheckBox("Esporte");
+        chkEsporte.setBounds(215, 185, 100, 30);
+        chkTecnologia = new JCheckBox("Tecnologia");
+        chkTecnologia.setBounds(315,185, 100, 30);
+        
+        lblNivel = new JLabel("Nível de Conhecimento em Informática:");
+        lblNivel.setBounds(15, 220, 300, 30);
+        sliderNivel = new JSlider(1, 3, 1);
+        sliderNivel.setBounds(15, 250, 300, 30);
+        sliderNivel.setMajorTickSpacing(1);
+        sliderNivel.setPaintTicks(true);
+        
+        lblBasico = new JLabel("Básico");
+        lblBasico.setBounds(15, 275, 100, 30);
+        lblIntermediario = new JLabel("Intermediário");
+        lblIntermediario.setBounds(110, 275, 100, 30);
+        lblIntermediario.setHorizontalAlignment(SwingConstants.CENTER);
+        lblAvancado = new JLabel("Avançado");
+        lblAvancado.setBounds(255, 275, 100, 30);
+        
+        lblSenha = new JLabel("Senha:");
+        lblSenha.setBounds(15, 445, 100, 30);
+        txtSenha = new JPasswordField();
+        txtSenha.setBounds(115, 445, 150, 30);
+
+        btnCadastrar = new JButton("Cadastrar");
+        btnCadastrar.addActionListener(this);
+        
+        btnCancelar = new JButton("Cancelar");
+        btnCancelar.addActionListener(this);
+        
+        painelBottom.add(btnCadastrar);
+        painelBottom.add(btnCancelar);
+        painelBottom.setBackground(new Color(200,200,200));
+        
+        painelCenter.add(lblNome); 
+        painelCenter.add(txtNome);
+        painelCenter.add(lblIdade); 
+        painelCenter.add(spinnerIdade);
+        painelCenter.add(lblSexo); 
+        painelCenter.add(rbMasc); 
+        painelCenter.add(rbFem);
+        painelCenter.add(lblEndereco); 
+        painelCenter.add(txtEndereco);
+        painelCenter.add(lblInteresses); 
+        painelCenter.add(chkEducacao); 
+        painelCenter.add(chkEconomia); 
+        painelCenter.add(chkEsporte); 
+        painelCenter.add(chkTecnologia);
+        painelCenter.add(lblNivel); 
+        painelCenter.add(sliderNivel); 
+        painelCenter.add(lblBasico); 
+        painelCenter.add(lblIntermediario); 
+        painelCenter.add(lblAvancado);
+        painelCenter.add(lblSenha); 
+        painelCenter.add(txtSenha);
+
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Usuario usuario = new Usuario();
+        usuario.setNome(txtNome.getText());
+        usuario.setIdade(Integer.parseInt(spinnerIdade.getValue().toString()));        
+        if (rbMasc.isSelected()){
+            usuario.setSexo('M');
+        }else if (rbFem.isSelected()){
+            usuario.setSexo('F');
+        }
+        usuario.setEndereco(txtEndereco.getText());
+        usuario.setInteresseEmEducacao(chkEducacao.isSelected());
+        usuario.setInteresseEmEconomia(chkEconomia.isSelected());
+        usuario.setInteresseEmEsporte(chkEsporte.isSelected());
+        usuario.setInteresseEmTecnologia(chkTecnologia.isSelected());
+        usuario.setNivelConhecimentoEmInformatica(sliderNivel.getValue());
+        txtSenha = new JPasswordField();
+        principal.addUsuario(usuario);
+        principal.imprimirUsuarios();
+    }
+
+}
