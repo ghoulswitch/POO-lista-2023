@@ -19,6 +19,7 @@ public class Usuario {
     /**
      * @return the nome
      */
+    //retorna o valor do objeto da classe Usuario ao chamá-lo
     public String getNome() {
         return nome;
     }
