@@ -1,34 +1,8 @@
 package AtividadeUsuarios;
 
-import java.util.List;
-import java.util.ArrayList;
-
 public class Principal {
-
-    private List<Usuario> usuarios;
     
-    private Principal(){
-        usuarios = new ArrayList<>();        
-    }
-    
-    public void addUsuario(Usuario usuario){
-        usuarios.add(usuario);
-    }
-    
-    public void imprimirUsuarios(){
-        Usuario usuario;
-        for (int i = 0; i < usuarios.size(); i++){
-            usuario = usuarios.get(i);
-            System.out.print(usuario.getNome());
-            System.out.print(" - ");
-            System.out.println(usuario.getSexo());
-            System.out.print(" - ");
-            System.out.println(String.valueOf(usuario.getIdade()));
-            System.out.print(" - ");
-            System.out.println(String.valueOf(usuario.getNivelConhecimentoEmInformatica()));
-        }
-    }
-    
+    //janela visivel p o usuario 
     public static void main(String[] args) {       
        Principal principal = new Principal();               
        JanelaFormulario janela = new JanelaFormulario(principal);
