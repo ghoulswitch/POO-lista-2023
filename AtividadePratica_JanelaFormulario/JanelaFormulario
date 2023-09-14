@@ -20,7 +20,6 @@ import javax.swing.JTextField;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 
-
 public class JanelaFormulario extends JFrame implements ActionListener {
     
     /**
@@ -40,13 +39,13 @@ public class JanelaFormulario extends JFrame implements ActionListener {
     private JButton btnCadastrar, btnCancelar;    
     private BorderLayout layoutPai;
     private FlowLayout layoutBottom;
-    private Principal principal;
+    private Lista lista;
     
     //criando uma janela dentro da classe que recebe um "Principal" objeto como construtor.
     public JanelaFormulario(Principal principal){
         
     	//define o campo "principal" da janela para o mesmo objeto "Principal" que foi passado p o construtor.
-        this.principal = principal;
+        this.lista = lista;
         
         //configurações da janela
         setTitle("Formulário de Cadastro de Usuário");
@@ -189,10 +188,11 @@ public class JanelaFormulario extends JFrame implements ActionListener {
         usuario.setNivelConhecimentoEmInformatica(sliderNivel.getValue());
         
         txtSenha = new JPasswordField();
-        principal.addUsuario(usuario);
+        lista.addUsuario(usuario);
         //chama o método imprimirUsuarios da classe Principal, exibindo todos os usuários da lista em uma janela.
-        principal.imprimirUsuarios();
+        lista.imprimirUsuarios();
     }
 
 
 }
+
