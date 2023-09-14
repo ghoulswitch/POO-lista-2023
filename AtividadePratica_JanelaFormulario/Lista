@@ -1,0 +1,39 @@
+package AtividadeUsuarios;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Lista {
+
+	//Variável usuarios armazena objetos da classe Usuario.
+    private List<Usuario> usuarios;
+    
+    
+    //Construtor privado 
+    private Lista(){
+    	//define usuarios como uma classe ArrayList (inicializada como uma lista vazia)
+        usuarios = new ArrayList<>();        
+    }
+    
+    //adiciona um objeto da classe "Usuario" chamado "usuario" á variável "usuarios" da classe "principal"
+    public void addUsuario(Usuario usuario){
+        usuarios.add(usuario);
+    }
+    
+//declara uma variável chamada "usuario" do tipo "Usuario"; a variavel "usuario" vai ser usada como parâmetro p recuperar os objetos na lista "usuarios"
+    public void imprimirUsuarios(){
+        Usuario usuario;
+        //Executa um loop q começa em zero e termina quando i é menor que o tamanho da lista (i<usuarios.size())
+        for (int i = 0; i < usuarios.size(); i++){
+            usuario = usuarios.get(i);
+            System.out.print(usuario.getNome());
+            System.out.print(" - ");
+            System.out.println(usuario.getSexo());
+            System.out.print(" - ");
+            System.out.println(String.valueOf(usuario.getIdade()));
+            System.out.print(" - ");
+            System.out.println(String.valueOf(usuario.getNivelConhecimentoEmInformatica()));
+        }
+    }   
+
+}
