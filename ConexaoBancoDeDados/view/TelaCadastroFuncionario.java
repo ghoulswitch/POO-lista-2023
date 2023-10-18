@@ -1,24 +1,20 @@
 package view;
 
-import dao.FabricaDeConexao;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+
+import dao.FuncionarioDAO;
 import model.Funcionario;
 
 public class TelaCadastroFuncionario extends JFrame implements ActionListener{
@@ -101,39 +97,13 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
         funcionario.setNome(txtNome.getText());
         funcionario.setCargo(txtCargo.getText());
         funcionario.setSalario(Double.parseDouble(txtSalario.getText()));
-                
-        try {
-            Connection conexao = FabricaDeConexao.getConexao();
-            PreparedStatement stmt = conexao.prepareStatement("INSERT INTO Funcionario(nome, cargo, salario) VALUES (?, ?, ?);");
-            stmt.setString(1, funcionario.getNome());
-            stmt.setString(2, funcionario.getCargo());
-            stmt.setDouble(3, funcionario.getSalario());
-            stmt.execute();
-            conexao.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaCadastroFuncionario.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
-        try{
-            Connection conexao = FabricaDeConexao.getConexao();
-            String sql = "SELECT codigo, nome, cargo, salario FROM Funcionario";
-            PreparedStatement stmt = conexao.prepareStatement(sql);    
-            ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
-                int codigo = rs.getInt("codigo");
-                String nome = rs.getString("nome");
-                String cargo = rs.getString("cargo");
-                double salario = rs.getDouble("salario");
-
-                funcionario.setCodigo(codigo);
-                funcionario.setNome(nome);
-                funcionario.setCargo(cargo);
-                funcionario.setSalario(salario);                    
-                System.out.println(funcionario.toString());
-            }        
-
-        }catch(SQLException ex){
-            
-        }        
+        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
+        funcionarioDAO.cadastrar(funcionario);
+        
+        List<Funcionario> funcionarios = funcionarioDAO.listaFuncionarios();
+        for(Funcionario func : funcionarios) {
+        	System.out.println(func.toString());
+        }
     }
 }
