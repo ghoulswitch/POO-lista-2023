@@ -9,6 +9,13 @@ public class Funcionario {
 		
 	}
 	
+	public Funcionario(String nome, String cargo, double salario) {
+		super();
+		this.nome = nome;
+		this.cargo = cargo;
+		this.salario = salario;
+	}
+
 	public Funcionario(int codigo, String nome, String cargo, double salario) {
 		this.codigo = codigo;
 		this.nome = nome;

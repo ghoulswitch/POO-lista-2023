@@ -6,6 +6,7 @@ import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -14,7 +15,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import dao.FuncionarioDAO;
+import controller.FuncionarioController;
 import model.Funcionario;
 
 public class TelaCadastroFuncionario extends JFrame implements ActionListener{
@@ -87,6 +88,7 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == btnCadastrar){
             cadastrarFuncionario();
+            imprimirFuncionarios();
         }else if (e.getSource() == btnCancelar){
             dispose();
         }
@@ -94,16 +96,19 @@ public class TelaCadastroFuncionario extends JFrame implements ActionListener{
     
     public void cadastrarFuncionario(){
         Funcionario funcionario = new Funcionario();
-        funcionario.setNome(txtNome.getText());
-        funcionario.setCargo(txtCargo.getText());
-        funcionario.setSalario(Double.parseDouble(txtSalario.getText()));
+        String nome = txtNome.getText();
+        String cargo = txtCargo.getText();
+        double salario = Double.parseDouble(txtSalario.getText());
         
-        FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
-        funcionarioDAO.cadastrar(funcionario);
-        
-        List<Funcionario> funcionarios = funcionarioDAO.listaFuncionarios();
-        for(Funcionario func : funcionarios) {
-        	System.out.println(func.toString());
+        FuncionarioController funcController = new FuncionarioController();
+        funcController.cadastrarFuncionarios(nome, cargo, salario);
+    }
+    
+    public void imprimirFuncionarios() {
+    	FuncionarioController funcController = new FuncionarioController();
+    	List<String[]> dadosFuncionario = funcController.listaFuncionarios();
+        for(String[] dado : dadosFuncionario) {
+        	System.out.println(dado[0]+"\t"+dado[1]+"\t"+dado[2]+"\t"+dado[3]);
         }
     }
 }
